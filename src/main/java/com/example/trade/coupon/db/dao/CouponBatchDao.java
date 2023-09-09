@@ -9,4 +9,26 @@ public interface CouponBatchDao {
      * @return
      */
     boolean insertCouponBatch(CouponBatch couponBatch );
+
+    /**
+     * for delete
+     * @param id
+     * @return
+     */
+    boolean deleteCouponBatchById(long id);
+
+    /**
+     * select/read
+     * @param id
+     * @return
+     */
+    CouponBatch queryCouponBatchById(long id);
+
+    /**
+     * update
+     * @param couponBatch
+     * @return
+     */
+
+    boolean updateCouponBatch(CouponBatch couponBatch);
 }

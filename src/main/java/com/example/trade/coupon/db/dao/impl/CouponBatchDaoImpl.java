@@ -23,4 +23,25 @@ public class CouponBatchDaoImpl implements CouponBatchDao {
         return insertRes > 0; //java auto simple the if else statement
 
     }
+
+    @Override
+    public boolean deleteCouponBatchById(long id){
+        int result =couponBatchMapper.deleteByPrimaryKey(id);
+        return result >0;
+
+    }
+
+    @Override
+    public CouponBatch queryCouponBatchById(long id){
+        return couponBatchMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public boolean updateCouponBatch(CouponBatch couponBatch){
+        int result=couponBatchMapper.updateByPrimaryKey(couponBatch);
+        return result>0;
+    }
+
+
+
 }
