@@ -2,6 +2,8 @@ package com.example.trade.coupon.db.dao;
 
 import com.example.trade.coupon.db.model.CouponBatch;
 
+import java.util.List;
+
 public interface CouponBatchDao {
     /**
      * add couponBatch
@@ -31,4 +33,10 @@ public interface CouponBatchDao {
      */
 
     boolean updateCouponBatch(CouponBatch couponBatch);
+
+    /**
+     * list of coupon batch
+     * @return
+     */
+    List<CouponBatch> queryCouponBatchList();
 }

@@ -6,6 +6,8 @@ import com.example.trade.coupon.db.model.CouponBatch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * couponbatch db operation
  */
@@ -40,6 +42,11 @@ public class CouponBatchDaoImpl implements CouponBatchDao {
     public boolean updateCouponBatch(CouponBatch couponBatch){
         int result=couponBatchMapper.updateByPrimaryKey(couponBatch);
         return result>0;
+    }
+
+    @Override
+    public List<CouponBatch> queryCouponBatchList(){
+        return couponBatchMapper.queryCouponBatchList();
     }
 
 
