@@ -92,8 +92,9 @@ public class ManagerController {
 
             couponBatchService.insertCouponBatch(couponBatch);//the service is for dao
             log.info("addCouponBatchAction success  couponBatch:{}", JSON.toJSONString(couponRule));
-            //跳转到券批次列表
-            return "coupon_batch_list";
+            //跳转到券批次列表 重定向
+            //return "coupon_batch_list";
+            return "redirect:/couponBatchList";
         } catch (Exception e) {
             log.error("addCouponBatchAction error", e);
             //跳转到异常提示页面
