@@ -13,7 +13,7 @@ public class JedisConfig extends CachingConfigurerSupport {
     private Logger logger = LoggerFactory.getLogger(JedisConfig.class);
 
     // Redis server address
-    private final String host = "localhost";
+    private final String host = "localhost";//later will be cloud ip addr
 
     // Redis server connection port
     private final int port = 6379;
@@ -43,8 +43,8 @@ public class JedisConfig extends CachingConfigurerSupport {
         jedisPoolConfig.setMinIdle(minIdle);
         JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, null);
 
-        logger.info("JedisPool注入成功！");
-        logger.info("redis地址：" + host + ":" + port);
+        logger.info("JedisPool go go go sucuessful！");
+        logger.info("redis addr：" + host + ":" + port);
         return jedisPool;
     }
 }
