@@ -49,6 +49,11 @@ public class CouponBatchDaoImpl implements CouponBatchDao {
         return couponBatchMapper.queryCouponBatchList();
     }
 
+    @Override
+    public boolean updateSendCouponBatchCount(Long id) {
+        return couponBatchMapper.updateSendCouponBatchCount(id) > 0;
+    }
+
 
 
 }

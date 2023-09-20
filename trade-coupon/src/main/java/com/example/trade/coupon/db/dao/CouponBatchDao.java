@@ -39,4 +39,6 @@ public interface CouponBatchDao {
      * @return
      */
     List<CouponBatch> queryCouponBatchList();
+
+    boolean updateSendCouponBatchCount(Long id);
 }

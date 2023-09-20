@@ -180,4 +180,12 @@
     <include refid="Base_Column_List"/>
     from coupon_batch
   </select>
+
+  <update id="updateSendCouponBatchCount" parameterType="java.lang.Long">
+    update coupon_batch
+    set available_count = available_count - 1,
+        assign_count    = assign_count + 1
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
 </mapper>
