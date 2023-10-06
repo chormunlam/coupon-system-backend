@@ -54,6 +54,11 @@ public class CouponBatchDaoImpl implements CouponBatchDao {
         return couponBatchMapper.updateSendCouponBatchCount(id) > 0;
     }
 
+//    @Override
+//    public CouponBatch queryCouponBatchById(long id){
+//        return couponBatchMapper.selectByPrimaryKey(id);
+//    }
+
 
 
 }

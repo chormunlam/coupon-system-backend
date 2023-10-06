@@ -43,10 +43,10 @@ public class RedisWorker {
      * @param key
      * @param value
      */
-//    public void setValue(String key, Long value) {
-//        Jedis jedisClient = jedisPool.getResource();
-//        jedisClient.set(key, value.toString());
-//        jedisClient.close();
-//    }
+    public void setValue(String key, Long value) {
+        Jedis jedisClient = jedisPool.getResource();
+        jedisClient.set(key, value.toString());
+        jedisClient.close();
+    }
 
 }

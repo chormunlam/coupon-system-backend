@@ -2,7 +2,9 @@ package com.example.trade.user.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.example.trade.coupon.db.model.Coupon;
+import com.example.trade.coupon.db.model.CouponBatch;
 import com.example.trade.coupon.db.model.CouponRule;
+import com.example.trade.coupon.service.CouponBatchService;
 import com.example.trade.coupon.service.CouponQueryService;
 
 import com.example.trade.coupon.db.model.Coupon;
@@ -10,8 +12,10 @@ import com.example.trade.coupon.service.CouponQueryService;
 import com.example.trade.coupon.utils.RedisWorker;
 import com.example.trade.user.vo.CouponVO;
 import lombok.extern.slf4j.Slf4j;
+import org.mockito.internal.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,6 +35,9 @@ public class UserCouponController {
 
     @Autowired
     private RedisWorker redisWorker;
+
+    @Autowired
+    private CouponBatchService couponBatchService;
 
     /**
      * 跳转到用户的优惠券列表页
@@ -68,9 +75,15 @@ public class UserCouponController {
         CouponVO couponVO = new CouponVO();
         //serach the redis first, (get cache first),
         String batchRule = redisWorker.getValueByKey("couponBatchRule:" + coupon.getBatchId());
+        if(StringUtils.isEmpty(batchRule)){
+            CouponBatch couponBatch =couponBatchService.queryCouponBatchById(coupon.getBatchId());
+            batchRule=couponBatch.getRule();
+        }
+
         /*
          * 将JSON中的rule规则，转化成CouponRule对象
          */
+
         CouponRule couponRule = JSON.parseObject(batchRule, CouponRule.class);
 
         if (couponRule.getCouponType() == 1) {

@@ -23,4 +23,9 @@ public class CouponBatchServiceImpl implements CouponBatchService {
     public List<CouponBatch> queryCouponBatchList() {
         return couponBatchDao.queryCouponBatchList();
     }
+
+    @Override
+    public CouponBatch queryCouponBatchById(long id){
+        return couponBatchDao.queryCouponBatchById(id);
+    }
 }

@@ -21,4 +21,13 @@ public interface CouponBatchService {
      * @return
      */
     List<CouponBatch> queryCouponBatchList();
+
+
+    /**
+     * 根据ID查询对应的券批次
+     *
+     * @param id
+     * @return
+     */
+    CouponBatch queryCouponBatchById(long id);
 }
