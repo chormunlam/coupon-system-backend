@@ -19,6 +19,8 @@ public interface CouponBatchDao {
      */
     boolean deleteCouponBatchById(long id);
 
+
+
     /**
      * select/read
      * @param id
@@ -35,10 +37,15 @@ public interface CouponBatchDao {
     boolean updateCouponBatch(CouponBatch couponBatch);
 
     /**
-     * list of coupon batch
+     * 查询优惠券批次列表
      * @return
      */
     List<CouponBatch> queryCouponBatchList();
 
+    /**
+     * 更新发券后券批次数量记录信息
+     * @param id
+     * @return
+     */
     boolean updateSendCouponBatchCount(Long id);
 }

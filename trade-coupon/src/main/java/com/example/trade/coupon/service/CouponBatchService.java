@@ -23,11 +23,11 @@ public interface CouponBatchService {
     List<CouponBatch> queryCouponBatchList();
 
 
-    /**
-     * 根据ID查询对应的券批次
-     *
-     * @param id
-     * @return
-     */
+    /*
+    do we need it??
+    */
+    boolean pushBatchListRuleToCache();
+
+
     CouponBatch queryCouponBatchById(long id);
 }

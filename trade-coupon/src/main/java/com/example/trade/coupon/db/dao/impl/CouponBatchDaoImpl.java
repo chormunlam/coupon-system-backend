@@ -3,6 +3,7 @@ package com.example.trade.coupon.db.dao.impl;
 import com.example.trade.coupon.db.dao.CouponBatchDao;
 import com.example.trade.coupon.db.mappers.CouponBatchMapper;
 import com.example.trade.coupon.db.model.CouponBatch;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
  */
 
 //dont forget to add the Service, ow spring wont run it.
+@Slf4j
 @Service
 public class CouponBatchDaoImpl implements CouponBatchDao {
     //2

@@ -43,10 +43,23 @@ public class RedisWorker {
      * @param key
      * @param value
      */
-    public void setValue(String key, Long value) {
+
+    public void setKey(String key, String value) {
         Jedis jedisClient = jedisPool.getResource();
-        jedisClient.set(key, value.toString());
+        jedisClient.set(key, value);
         jedisClient.close();
     }
 
-}
+    /**
+     * 根据key从Redis中获取对应的值
+     *
+     * @param key
+     * @return
+     */
+    public String  getValue(String key){
+        Jedis jedisClient = jedisPool.getResource();
+        String value = jedisClient.get(key);
+        jedisClient.close();
+        return value;
+
+}}
